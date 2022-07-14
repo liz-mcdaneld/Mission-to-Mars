@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 # Connect to Mongo using flask_pymongo
 app.config["MONGO_URI"] = "mongodb://localhost:27017/mars_app"
-mongo = PyMongo
+mongo = PyMongo(app)
 
 # Define the route for the HTML page
 @app.route("/")
@@ -26,4 +26,5 @@ def scrape():
 
 # Telling Flask to run
 if __name__ == "__main__":
+    app.debug = True
     app.run()
